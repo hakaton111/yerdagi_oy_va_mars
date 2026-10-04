@@ -53,11 +53,32 @@
   border-bottom-color: var(--color-earth);
 }
 
+.navbar__brand,
+.navbar__link {
+  white-space: nowrap;
+}
+
 @media (max-width: 640px) {
   .navbar__links {
     gap: var(--space-md);
   }
-  .navbar__brand span:last-child {
-    display: none;
+}
+
+/* Telefon: brend yuqorida, linklar pastki qatorda — bir-biriga yopishmaydi */
+@media (max-width: 480px) {
+  .navbar__inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: var(--space-sm);
+    row-gap: var(--space-xs);
+  }
+
+  .navbar__links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar__link {
+    font-size: 0.85rem;
   }
 }
