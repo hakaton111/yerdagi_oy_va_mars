@@ -1,32 +1,49 @@
-# React + TypeScript + Vite
+# Yer Analoglari — Earth Analog Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**NASA Space Apps Challenge** — "Identify Earth Locations that Analog Moon/Mars"
 
-Currently, two official plugins are available:
+Yer yuzidagi Oy va Marsga geologik/ekologik jihatdan o'xshash haqiqiy
+hududlarni interaktiv xarita orqali kashf qilish va har bir o'xshashlikni
+ilmiy manbalar bilan asoslab tushuntirish platformasi.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Jamoa
 
-## React Compiler
+- **Odilbek** — loyiha skeletoni, interaktiv xarita, merge
+- **MuhammadAli** — bosh sahifa, vizual branding
+- **HojiAkbar** — joy tafsiloti sahifasi, Yer/Oy/Mars taqqoslash
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Ishga tushirish
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+```bash
+npm run build    # production build (dist/)
+npm run lint     # oxlint
+```
+
+## Funksiyalar
+
+- **Interaktiv xarita** — standart/sputnik qatlamlari, sayyora va relyef
+  turi bo'yicha filtr, qidiruv, marker↔ro'yxat sinxronizatsiyasi
+- **7 ta ilmiy jihatdan hujjatlashtirilgan Yer-analog joy** — Atakama
+  cho'li, Devon oroli (Haughton krateri), Danakil botig'i, Makmurdo quruq
+  vodiylari, Timanfaya milliy bog'i, Mauna Kea, Nordlinger Ris krateri
+- **Yer vs Oy/Mars vizual taqqoslash** — slider va yonma-yon rejimlar
+- Har bir joy uchun o'xshashlik/farq tahlili, ilmiy kontekst va tashqi
+  manba havolalari — hech qaysi joy "aynan nusxa" sifatida ko'rsatilmaydi
+
+To'liq texnik hujjat: [`TZ.md`](./TZ.md). Vazifa taqsimoti: [`TASK.md`](./TASK.md).
+
+## Tech stack
+
+React 19 + TypeScript + Vite, React Router, Leaflet/react-leaflet.
+Ma'lumotlar statik (`src/data/locations.ts`) — backend talab qilinmaydi.
+
+## Ilmiy halollik
+
+Hech bir joy Oy yoki Marsning aynan nusxasi sifatida taqdim etilmaydi.
+Har bir joyda o'xshashliklar bilan bir qatorda **muhim farqlar** va
+tashqi manbalar (NASA, ESA, Wikipedia) ko'rsatiladi.
