@@ -1,0 +1,25 @@
+.planet-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.planet-badge--mars {
+  color: var(--color-mars);
+  background: var(--color-mars-dim);
+}
+
+.planet-badge--moon {
+  color: var(--color-moon);
+  background: var(--color-moon-dim);
+}
+
+.planet-badge--both {
+  color: var(--color-earth);
+  background: var(--color-earth-dim);
+}
