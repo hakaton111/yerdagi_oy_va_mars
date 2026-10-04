@@ -155,7 +155,7 @@
 .map-explorer__layer-toggle {
   position: absolute;
   top: var(--space-sm);
-  left: var(--space-sm);
+  right: var(--space-sm);
   z-index: 500;
   display: flex;
   gap: 4px;
