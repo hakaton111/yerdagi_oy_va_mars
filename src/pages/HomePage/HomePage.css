@@ -1,5 +1,89 @@
+/* ---------- Hero + kosmik fon ---------- */
+
+.home__hero-wrap {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home__space {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.home__stars {
+  position: absolute;
+  inset: -50% 0 0 0;
+  background-repeat: repeat;
+}
+
+.home__stars--far {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, var(--color-moon), transparent),
+    radial-gradient(1px 1px at 120px 80px, var(--color-text-secondary), transparent),
+    radial-gradient(1px 1px at 200px 160px, var(--color-moon), transparent),
+    radial-gradient(1px 1px at 70px 190px, var(--color-text-muted), transparent),
+    radial-gradient(1px 1px at 260px 40px, var(--color-text-secondary), transparent);
+  background-size: 300px 220px;
+  opacity: 0.6;
+  animation: home-drift 120s linear infinite;
+}
+
+.home__stars--near {
+  background-image:
+    radial-gradient(1.5px 1.5px at 50px 110px, var(--color-text-primary), transparent),
+    radial-gradient(1.5px 1.5px at 330px 60px, var(--color-moon), transparent),
+    radial-gradient(2px 2px at 180px 250px, var(--color-earth), transparent),
+    radial-gradient(1.5px 1.5px at 400px 200px, var(--color-text-primary), transparent);
+  background-size: 460px 320px;
+  animation: home-drift 70s linear infinite, home-twinkle 4s ease-in-out infinite alternate;
+}
+
+.home__orb {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.home__orb--mars {
+  width: 340px;
+  height: 340px;
+  right: -110px;
+  bottom: -150px;
+  background:
+    radial-gradient(circle at 35% 35%, var(--color-mars) 0%, var(--color-mars-dim) 65%, transparent 72%);
+  opacity: 0.55;
+  animation: home-float 14s ease-in-out infinite alternate;
+}
+
+.home__orb--moon {
+  width: 120px;
+  height: 120px;
+  left: 6%;
+  top: 18%;
+  background:
+    radial-gradient(circle at 60% 40%, var(--color-moon-dim) 0 10%, transparent 11%),
+    radial-gradient(circle at 30% 65%, var(--color-moon-dim) 0 7%, transparent 8%),
+    radial-gradient(circle at 40% 35%, var(--color-moon) 0%, var(--color-moon-dim) 70%, transparent 74%);
+  opacity: 0.35;
+  animation: home-float 18s ease-in-out infinite alternate-reverse;
+}
+
+.home__orbit {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  left: 50%;
+  top: 50%;
+  border: 1px dashed var(--color-earth-dim);
+  border-radius: 50%;
+  transform: translate(-50%, -30%);
+  opacity: 0.5;
+}
+
 .home__hero {
-  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  position: relative;
+  padding: var(--space-2xl) var(--space-lg) var(--space-2xl);
   text-align: center;
   max-width: 760px;
 }
@@ -36,32 +120,93 @@
   display: flex;
   gap: var(--space-md);
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 0.7rem 1.4rem;
   border-radius: var(--radius-sm);
   font-size: 0.92rem;
   font-weight: 600;
   border: 1px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn--primary {
   background: var(--color-earth);
-  color: #04101c;
+  color: var(--color-bg);
 }
 
 .btn--ghost {
   border-color: var(--color-border);
   color: var(--color-text-primary);
+  background: var(--color-bg);
 }
 
-.home__featured {
-  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+.btn--ghost:hover {
+  border-color: var(--color-earth);
 }
 
+/* ---------- Statistika ---------- */
+
+.home__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-md);
+}
+
+.home__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.home__stat-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-earth);
+}
+
+.home__stat:nth-child(2) .home__stat-value {
+  color: var(--color-mars);
+}
+
+.home__stat:nth-child(3) .home__stat-value {
+  color: var(--color-moon);
+}
+
+.home__stat:nth-child(4) .home__stat-value {
+  color: var(--color-verified);
+}
+
+.home__stat-label {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Qanday ishlaydi ---------- */
+
+.home__how {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-md);
+}
+
+.home__how h2,
 .home__featured h2 {
   font-size: 1.6rem;
   margin-bottom: var(--space-xs);
@@ -69,6 +214,62 @@
 
 .home__section-desc {
   margin-bottom: var(--space-lg);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.home__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  counter-reset: none;
+}
+
+.home__step {
+  position: relative;
+  padding: var(--space-lg);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-earth);
+  border-radius: var(--radius-md);
+}
+
+.home__step:nth-child(2) {
+  border-top-color: var(--color-moon);
+}
+
+.home__step:nth-child(3) {
+  border-top-color: var(--color-mars);
+}
+
+.home__step-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.home__step h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-sm);
+}
+
+.home__step p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ---------- Tanlangan joylar ---------- */
+
+.home__featured {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .home__grid {
@@ -77,8 +278,88 @@
   gap: var(--space-lg);
 }
 
+.home__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* ---------- Animatsiyalar ---------- */
+
+@keyframes home-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(33%);
+  }
+}
+
+@keyframes home-twinkle {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes home-float {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-20px, -16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home__stars,
+  .home__orb {
+    animation: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
 @media (max-width: 860px) {
-  .home__grid {
+  .home__grid,
+  .home__steps {
     grid-template-columns: 1fr;
+  }
+
+  .home__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .home__hero {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .home__orb--mars {
+    width: 220px;
+    height: 220px;
+    right: -90px;
+    bottom: -100px;
+  }
+
+  .home__orb--moon {
+    width: 70px;
+    height: 70px;
+    top: 6%;
+  }
+
+  .home__cta-row .btn {
+    width: 100%;
+  }
+
+  .home__stat {
+    padding: var(--space-md);
+  }
+
+  .home__stat-value {
+    font-size: 1.8rem;
   }
 }

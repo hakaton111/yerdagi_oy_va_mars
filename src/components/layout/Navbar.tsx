@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar__inner">
         <NavLink to="/" className="navbar__brand">
-          <span className="navbar__brand-dot" />
+          <img src="/logo.png" alt="" className="navbar__logo" width={32} height={32} />
           Yer Analoglari
         </NavLink>
         <nav className="navbar__links">
